@@ -9,5 +9,5 @@ class HumorEngine:
             self.client=OpenAI()
     def generate(self,tweet):
         if self.settings.mock_mode: return {'selected':'$5k for two customers. Those two better have lifetime warranties.','style':'exaggeration','candidates':[]}
-        r=self.client.chat.completions.create(model=self.settings.llm_model,messages=[{'role':'system','content':'Return JSON only.'},{'role':'user','content':self.prompt.replace('{TWEET}',tweet.text).replace('{AUTHOR}',tweet.author)}],response_format={'type':'json_object'},max_completion_tokens=800)
+        r=self.client.chat.completions.create(model=self.settings.llm_model,messages=[{'role':'system','content':'Return JSON only.'},{'role':'user','content':self.prompt.replace('{TWEET}',tweet.text).replace('{AUTHOR}',tweet.author)}],response_format={'type':'json_object'},max_tokens=800)
         return json.loads(r.choices[0].message.content)

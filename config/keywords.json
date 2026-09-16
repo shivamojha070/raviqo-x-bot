@@ -1,0 +1,29 @@
+{
+  "marketing": [
+    "marketing", "digital marketing", "growth marketing", "performance marketing", "content marketing", "social media marketing", "marketing strategy", "marketing agency"
+  ],
+  "digital_marketing": [
+    "digital marketing", "online marketing", "growth marketing", "performance marketing", "content marketing", "social media marketing", "marketing strategy", "marketing consultant", "marketing agency", "digital agency", "brand awareness", "brand strategy", "go to market", "marketing budget"
+  ],
+  "customer_acquisition": [
+    "customer acquisition", "acquire customers", "get more customers", "customer growth", "user acquisition", "new customers", "customer pipeline", "more sales", "increase sales", "sales growth", "revenue growth", "booked calls", "appointment setting", "qualified leads"
+  ],
+  "lead_generation": [
+    "lead generation", "lead gen", "generate leads", "get leads", "more leads", "lead quality", "lead magnet", "lead form", "inbound leads", "outbound leads", "B2B leads", "local leads", "real estate leads", "agency leads", "lead conversion"
+  ],
+  "paid_ads": [
+    "Meta ads", "Facebook ads", "Instagram ads", "Google ads", "TikTok ads", "LinkedIn ads", "paid ads", "PPC", "paid social", "ad campaign", "ad campaigns", "ad creative", "ad testing", "ROAS", "CPC", "CPM", "cost per lead", "ad spend", "wasted ad spend"
+  ],
+  "conversion_funnel": [
+    "landing page", "landing page conversion", "conversion rate", "conversion optimization", "CRO", "sales funnel", "marketing funnel", "funnel optimization", "checkout conversion", "website conversion", "high converting", "call to action", "CTA", "pricing page", "email funnel", "email marketing", "email open rate"
+  ],
+  "marketing_pain": [
+    "ads not working", "ads aren't working", "marketing isn't working", "marketing not working", "no customers", "no leads", "need customers", "need leads", "low conversion", "low conversions", "bad leads", "cheap leads", "sales are down", "marketing is expensive", "too expensive to acquire", "high CAC", "low ROAS", "no one is buying", "website gets traffic but no sales", "content gets no engagement"
+  ],
+  "founder_business": [
+    "founder", "startup founder", "small business owner", "business owner", "entrepreneur", "startup", "SaaS founder", "ecommerce brand", "DTC brand", "creator business", "freelancer", "agency owner", "solopreneur", "bootstrapped", "building in public", "startup life", "founder life"
+  ],
+  "marketing_humor": [
+    "marketing meme", "marketing humor", "marketing funny", "agency life", "client work", "client feedback", "client revisions", "freelance life", "social media manager", "content creator", "brand manager", "marketing team", "boss said marketing", "viral campaign", "marketing fail", "business meme", "startup humor"
+  ]
+}

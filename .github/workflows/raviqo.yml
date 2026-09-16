@@ -3,6 +3,7 @@ name: RAVIQO X Reply Bot
 on:
   workflow_dispatch:
   schedule:
+    # Re-register the recurring trigger on the default branch.
     - cron: '*/5 * * * *'
 
 permissions:

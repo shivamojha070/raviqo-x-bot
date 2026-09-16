@@ -38,8 +38,8 @@ jobs:
       - name: Run one fresh-tweet cycle
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_API_BASE: ${{ secrets.OPENAI_API_BASE }}
-          LLM_MODEL: gpt-5-mini
+          OPENAI_API_BASE: https://generativelanguage.googleapis.com/v1beta/openai/
+          LLM_MODEL: gemini-2.5-flash
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           X_COOKIES_FILE: data/cookies.json

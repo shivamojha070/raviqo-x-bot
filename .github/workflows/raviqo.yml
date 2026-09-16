@@ -1,0 +1,62 @@
+name: RAVIQO X Reply Bot
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/5 * * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: raviqo-x-reply-bot
+  cancel-in-progress: false
+
+jobs:
+  reply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Restore X cookies
+        env:
+          RAVIQO_COOKIES_JSON: ${{ secrets.RAVIQO_COOKIES_JSON }}
+        run: |
+          mkdir -p data
+          printf '%s' "$RAVIQO_COOKIES_JSON" > data/cookies.json
+
+      - name: Run one fresh-tweet cycle
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_API_BASE: ${{ secrets.OPENAI_API_BASE }}
+          LLM_MODEL: gpt-5-mini
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          X_COOKIES_FILE: data/cookies.json
+          SAFE_MODE: 'false'
+          RUN_ONCE: 'true'
+          MAX_TWEET_AGE_MINUTES: '5'
+          MAX_REPLIES_PER_CYCLE: '1'
+          MAX_REPLIES_PER_DAY: '20'
+          MAX_REPLIES_PER_AUTHOR_PER_DAY: '1'
+          MIN_REQUEST_DELAY_SECONDS: '5'
+        run: python main.py
+
+      - name: Persist database and logs
+        run: |
+          rm -f data/cookies.json
+          git config user.name 'raviqo-bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/raviqo.db data/logs.xlsx
+          git diff --cached --quiet || git commit -m "chore: persist RAVIQO bot state"
+          git push
